@@ -7,6 +7,9 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Navigation from './components/Navigation/Navigation';
 import Packages from './components/Packages/Packages';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import UserExperience from './components/UserExperience/UserExperience';
+import Dashboard from './components/Dashboard/Dashboard';
+import BlogDetail from './components/BlogDetail.js/BlogDetail';
 
 
 function App() {
@@ -27,8 +30,14 @@ function App() {
           <Route path="/register">
             <Register/>
           </Route>
-          <PrivateRoute path="/packages">
-            <Packages/>
+          <PrivateRoute path="/blogDetail/:id">
+            <BlogDetail/>
+          </PrivateRoute>
+          <PrivateRoute path="/userExperience">
+            <UserExperience/>
+          </PrivateRoute>
+          <PrivateRoute path="/dashboard">
+            <Dashboard/>
           </PrivateRoute>
         </Switch>
       </Router>

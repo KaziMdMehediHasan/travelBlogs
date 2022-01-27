@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 
@@ -21,18 +21,17 @@ const Navigation = () => {
                 <div className="flex space-x-4">
                     {/* logo */}
                     <div>
-                    <a href="#" className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+                    <Link to='/home' className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
                         <svg className="h-6 w-6 mr-1 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                         </svg>
-                        <span className="font-bold">Better Dev</span>
-                    </a>
+                        <span className="font-bold">Travelia</span>
+                    </Link>
                     </div>
 
                     {/* primary nav */}
                     <div className="hidden md:flex items-center space-x-1">
-                    <NavLink to="packages" href="#" className="py-5 px-3 text-gray-700 hover:text-gray-900">Packages</NavLink>
-                    <NavLink to="" href="#" className="py-5 px-3 text-gray-700 hover:text-gray-900">Pricing</NavLink>
+                    <NavLink to="/userExperience" className="py-5 px-3 text-gray-700 hover:text-gray-900">Write a Blog</NavLink>
                     </div>
                 </div>
 
@@ -44,10 +43,18 @@ const Navigation = () => {
                                 <NavLink to="/login" className="py-5 px-3">Login</NavLink>
                             }
                             {
-                                user?.displayName ? <li>{ user?.displayName }</li> : ''
+                                user?.displayName ? <p>{ user?.displayName }</p> : ''
                             }
- 
-                    <NavLink to="/register" className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Register</NavLink>
+
+                            {
+                                user?.email && <NavLink to="/dashboard" className="py-5 px-3">Dashboard</NavLink>
+                            }
+
+
+                            {
+                    !user?.email ?                        <NavLink to="/register" className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Register</NavLink> : ""  
+                    }
+
                 </div>
 
                 {/* mobile button goes here */}
@@ -58,7 +65,12 @@ const Navigation = () => {
                     <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    </button>
+                            </button>
+                            {
+                                user?.email ? <button onClick={logout} className="py-5 px-3 bg-red-400">Logout</button>
+                                    :
+                                <NavLink to="/login" className="py-5 px-3">Login</NavLink>
+                            }
                 </div>
 
                 </div>
@@ -66,15 +78,10 @@ const Navigation = () => {
 
             {/* mobile menu */}
             <div id='mobile-menu' className="mobile-menu hidden md:hidden">
-                <NavLink to="" className="block py-2 px-4 text-sm hover:bg-gray-200">Features</NavLink>
-                <NavLink to="" className="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</NavLink>
+                <NavLink to="/userExperience" className="block py-2 px-4 text-sm hover:bg-gray-200">Write a Blog</NavLink>
+
             </div>
             </nav>
-
-            {/* content goes here */}
-            <div className="py-32 text-center">
-            <h2 className="font-extrabold text-4xl">Navbars in Tailwind!</h2>
-            </div>
     </>
     );
 };

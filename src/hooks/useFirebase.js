@@ -10,6 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState(false);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -25,6 +26,9 @@ const useFirebase = () => {
                 const newUser = { email, name }
                 // send name to firebase
                 setUser(newUser);
+
+                //save user to the database
+                saveUser(email, name, 'POST');
                 // update the profile
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -75,9 +79,10 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
+                saveUser(user.email, user.displayName, 'PUT');
+                setAuthError('');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
-                setAuthError('');
             }).catch((error) => {
                 const errorCode = error.code;
                 setAuthError(error.message);
@@ -99,7 +104,13 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
     
- //end of observe user   
+ //end of observe user
+    
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email]);
     // log out user
     const logout = () => {
         signOut(auth).then(() => {
@@ -110,8 +121,19 @@ const useFirebase = () => {
         .finally(() => setIsLoading(false));
 
     }
+
+    const saveUser = (email,displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+        .then()
+    }
     return {
         user,
+        admin,
         isLoading,
         authError,
         registerUser,
