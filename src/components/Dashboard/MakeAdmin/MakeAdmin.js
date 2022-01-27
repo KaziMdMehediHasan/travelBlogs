@@ -13,7 +13,7 @@ const MakeAdmin = () => {
         console.log('clicked');
         const user = { email };
         // console.log(user);
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://vast-thicket-90925.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)

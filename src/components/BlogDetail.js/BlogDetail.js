@@ -10,7 +10,7 @@ const BlogDetail = () => {
     
     console.log(blog);
     useEffect(() => {
-        fetch(`http://localhost:5000/userExperiences/${id}`)
+        fetch(`https://vast-thicket-90925.herokuapp.com/userExperiences/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data);

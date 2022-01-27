@@ -7,7 +7,7 @@ const SingleMyBlog = (props) => {
         // blog deletation
     const handleDelete = (id) => {
         // console.log(id);
-        fetch(`http://localhost:5000/experiences/${id}`, {
+        fetch(`https://vast-thicket-90925.herokuapp.com/experiences/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -8,7 +8,7 @@ const MyBlogs = () => {
     const[loading, setLoading] = useState(true);
     
     useEffect(() => {
-        const url = `http://localhost:5000/experiences/${user.email}`
+        const url = `https://vast-thicket-90925.herokuapp.com/experiences/${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

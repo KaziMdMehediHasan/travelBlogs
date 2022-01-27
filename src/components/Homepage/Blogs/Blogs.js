@@ -9,7 +9,7 @@ const Blogs = () => {
     const size = 10;
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/experiences?page=${page}&&size=${size}`)
+        fetch(`https://vast-thicket-90925.herokuapp.com/experiences?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setExperiences(data.experiences);

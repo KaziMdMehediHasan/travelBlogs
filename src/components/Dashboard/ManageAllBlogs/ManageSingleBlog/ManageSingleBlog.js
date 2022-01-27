@@ -8,7 +8,7 @@ const ManageSingleBlog = (props) => {
     // blog deletation
     const handleDelete = (id) => {
         // console.log(id);
-        fetch(`http://localhost:5000/experiences/${id}`, {
+        fetch(`https://vast-thicket-90925.herokuapp.com/experiences/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -25,7 +25,7 @@ const ManageSingleBlog = (props) => {
     const handleApproval = (id) => {
         console.log(id);
         const experience = { id };
-        fetch('http://localhost:5000/experiences/update', {
+        fetch('https://vast-thicket-90925.herokuapp.com/experiences/update', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(experience)

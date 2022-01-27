@@ -5,7 +5,7 @@ const ManageAllBlogs = () => {
     const [experiences, setExperiences] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/experiences`)
+        fetch(`https://vast-thicket-90925.herokuapp.com/experiences`)
             .then(res => res.json())
             .then(data => {
                 setExperiences(data.experiences);
