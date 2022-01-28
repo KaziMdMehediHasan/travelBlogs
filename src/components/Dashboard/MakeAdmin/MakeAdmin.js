@@ -6,6 +6,8 @@ import "./MakeAdmin.css";
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
+
+    // capturting the data from the form
     const handleOnBlur = e=>{
         setEmail(e.target.value);
     }
@@ -36,11 +38,12 @@ const MakeAdmin = () => {
     return (
         <div className="make-admin-parent">
         <div className="make-admin-container">
-        <h2 className="text-3xl" style={{color: '#C8C8C8'}}>Make Admin</h2>
+        <h2 className="text-4xl text-white">Make Admin</h2>
             <form onSubmit={handleMakeAdmin}>
                 <div className="mb-3">
-                    <label>Email address</label>
+                    <h1 className="text-2xl text-center py-2">Email address</h1>
                     <input
+                     className='py-2 rounded-md w-full'       
                     onBlur={handleOnBlur}
                     type="email"
                       />
@@ -52,7 +55,11 @@ const MakeAdmin = () => {
                     </div>
                 )
             }
-                <button className="bg-zinc-50 px-2 py-2 rounded-full">Make Admin</button>
+                <div className="w-full flex justify-center items-center">
+                    <button className="bg-green-200 hover:bg-green-400 px-2 py-2 rounded-full">Make Admin</button>      
+               </div>
+   
+                
             </form>
 
         </div>

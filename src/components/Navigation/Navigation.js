@@ -4,7 +4,7 @@ import useAuth from '../../hooks/useAuth';
 
 
 const Navigation = () => {
-    const {user, logout} = useAuth();
+    const {user, admin,logout} = useAuth();
     const handleHam =()=>{
         console.log('clicked');
         const ham = document.getElementById("mobile-menu");
@@ -30,24 +30,30 @@ const Navigation = () => {
                     </div>
 
                     {/* primary nav */}
-                    <div className="hidden md:flex items-center space-x-1">
-                    <NavLink to="/userExperience" className="py-5 px-3 text-gray-700 hover:text-gray-900">Write a Blog</NavLink>
+                            <div className="hidden md:flex items-center space-x-1">
+                                
+                                {
+                                    !admin &&                     <NavLink to="/userExperience" className="py-5 px-3 text-gray-700 hover:text-gray-900">Write a Blog</NavLink>
+                                }
+
                     </div>
                 </div>
 
                 {/* secondary nav */}
                         <div className="hidden md:flex items-center space-x-1">
+                           
                             {
-                                user?.email ? <button onClick={logout} to="/login" className="py-5 px-3">Logout</button>
-                                    :
-                                <NavLink to="/login" className="py-5 px-3">Login</NavLink>
-                            }
-                            {
-                                user?.displayName ? <p>{ user?.displayName }</p> : ''
+                                user?.displayName ? <p className="font-bold text-green-600 px-2">{ user?.displayName }</p> : ''
                             }
 
                             {
-                                user?.email && <NavLink to="/dashboard" className="py-5 px-3">Dashboard</NavLink>
+                                user?.email && <NavLink to="/dashboard" className="py-2 px-3 bg-cyan-300 rounded-md hover:bg-cyan-400 font-bold shadow-lg">Dashboard</NavLink>
+                            }
+
+                             {
+                                user?.email ? <button onClick={logout} to="/login" className="py-2 rounded-md px-3 bg-red-300 hover:bg-red-500 shadow-lg">Logout</button>
+                                    :
+                                <NavLink to="/login" className="py-2 rounded-md px-3 bg-green-300 hover:bg-green-500">Login</NavLink>
                             }
 
 

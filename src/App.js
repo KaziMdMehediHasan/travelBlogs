@@ -16,7 +16,6 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navigation/>
         <Switch>
           <Route exact path="/">
             <Homepage></Homepage>

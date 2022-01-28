@@ -57,12 +57,24 @@ const AddProduct = () => {
               />
               <hr />
               <input
+                {...register("title", { required: true })}
+                placeholder="Blog Title *required"
+              />
+              <hr/>
+              <input
                 {...register("location", { required: true })}
                 placeholder="travel location *required"
               />
+              <hr/>
               <input
                 {...register("category", { required: true })}
                 placeholder="category *required"
+              />
+              <hr />
+              <input
+                {...register("cost", { required: true })}
+                placeholder="overall travel cost *required"
+                type="number"
               />
               <hr />
               <input 
@@ -80,7 +92,7 @@ const AddProduct = () => {
           <hr />
           <input {...register("image", { required: true })}  placeholder="image url"/>
           <hr/>
-              <input className="submit" type="submit"/>
+              <input value="Post" className="submit" type="submit"/>
             </form>
           </div>
           {

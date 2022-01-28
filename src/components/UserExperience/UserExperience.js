@@ -2,6 +2,8 @@ import { data } from 'autoprefixer';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
 import './UserExperience.css';
 
 const UserExperience = () => {
@@ -41,17 +43,37 @@ const UserExperience = () => {
         console.log(blogData.image);
         e.target.reset();
     }
-    return (
-        <div>
-        <form className="purchase-form" onSubmit={handleSubmit(onSubmit)}>
-              <input
+  return (
+    <>
+      <Navigation />
+      <div>
+        <div className="w-3/6 mx-auto">
+          <h1 className="text-4xl text-center my-5 text-slate-700">Post your blog</h1>
+            <form className="add-product-form border-4 rounded-md" onSubmit={handleSubmit(onSubmit)}>
+            <input
                 {...register("name", { required: true })}
                 placeholder="name *required"
               />
               <hr />
               <input
+                {...register("title", { required: true })}
+                placeholder="Blog Title *required"
+              />
+              <hr/>
+              <input
                 {...register("location", { required: true })}
                 placeholder="travel location *required"
+              />
+              <hr/>
+              <input
+                {...register("category", { required: true })}
+                placeholder="category *required"
+              />
+              <hr />
+              <input
+                {...register("cost", { required: true })}
+                placeholder="overall travel cost *required"
+                type="number"
               />
               <hr />
               <input 
@@ -69,8 +91,8 @@ const UserExperience = () => {
           <hr />
           <input {...register("image", { required: true })}  placeholder="image url"/>
           <hr/>
-              <input className="submit" type="submit"/>
-        </form>
+              <input value="Post" className="submit" type="submit"/>
+            </form>
         {/* after successful submission */}
             {
                 postSuccess &&
@@ -86,6 +108,9 @@ const UserExperience = () => {
                 </div>
             }
         </div>
+        </div>
+      <Footer/>
+      </>
     );
 };
 

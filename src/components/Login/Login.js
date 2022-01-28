@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
@@ -30,7 +32,10 @@ const Login = () => {
         signInWithGoogle(location,history);
     }
     return (
+        <>
+            <Navigation/>
         <div>
+          
             <h1 className="text-3xl">This is login</h1>
             <form onSubmit={handleLoginSubmit}>
                 <input
@@ -91,8 +96,11 @@ const Login = () => {
                 <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
                     <p>{authError}</p>
                 </div>
-            </div>}
-        </div>
+                </div>}
+            
+            </div>
+            <Footer/>
+        </>
     );
 };
 

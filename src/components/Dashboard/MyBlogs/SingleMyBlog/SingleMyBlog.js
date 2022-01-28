@@ -2,7 +2,7 @@ import React from 'react';
 import Rating from 'react-rating';
 
 const SingleMyBlog = (props) => {
-    const { address, date, name, rating, image, experience, _id, status, category } = props.experience;
+    const { address, date, name, rating, image, experience, _id, status, category,location } = props.experience;
     
         // blog deletation
     const handleDelete = (id) => {
@@ -23,7 +23,7 @@ const SingleMyBlog = (props) => {
             <div class="rounded overflow-hidden shadow-lg">
             <img class="w-full" src={image} alt=""/>
             <div className="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">{ address}</div>
+                    <div class="font-bold text-xl mb-2">{ address || location}</div>
                     <p class="text-gray-700 text-base">
                         {experience.slice(0,200)}....
                 </p>
