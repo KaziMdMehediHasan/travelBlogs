@@ -51,13 +51,23 @@ const Blogs = () => {
                 <div>
                     <h1 className="text-3xl text-center text-gray-700 font-bold py-2">Top Rated Blogs</h1>
                     <SideBar blogs={topBlogs} />
+
+                {/* newsletter */}
+                <div className="bg-slate-900 flex flex-col justify-center items-center py-5">
+                    <h1 className="text-2xl text-white text-center font-bold my-5">Join Our Newsletter</h1>
+                        <input className="w-4/5 px-5 py-3 rounded-lg" type="email" placeholder="Email" />
+                        <br/>
+                    <button className="bg-slate-300 px-4 py-3 rounded-lg my-5 hover:bg-slate-700 hover:text-white">Give me updates</button>
+                </div>
+                {/* end of newsletter */}
                     
                 </div>
                 {/* end of top rated blog side bar */}
+
             </div>
 
             {/* pagination section */}
-             <div className='pagination'>
+             <div className='pagination my-5'>
                 {
                     [...Array(pageCount).keys()]
                         .map(number => <button
@@ -66,7 +76,7 @@ const Blogs = () => {
                             'bg-gray-700 text-white mx-2 px-4 py-2 rounded-full'}>{number + 1}</button>)
                     }
             </div>
-</div>
+        </div>
     );
 };
 

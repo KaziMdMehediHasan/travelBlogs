@@ -40,19 +40,19 @@ const ManageSingleBlog = (props) => {
     return (
         <>
             <div class="rounded overflow-hidden shadow-lg">
-            <img class="w-full" src={image} alt=""/>
+            <img class="w-full object-cover h-[15rem]" src={image} alt=""/>
             <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">{ address || location}</div>
                     <p class="text-gray-700 text-base">
-                        {experience.slice(0,200)}....
+                        {experience.slice(0,50)}....
                 </p>
             </div>
             <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{address}</span>
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{address || location}</span>
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{name}</span>
                 </div>
                 {/* status of the blog post */}
-                <span className={ status === 'pending' ?"bg-yellow-200 hover:bg-yellow-500 text-neutral-800 font-bold py-2 px-4 rounded-full" : 'bg-green-200 hover:bg-green-500 text-neutral-800 font-bold py-2 px-4 rounded-full'}>
+                <span className={ status === 'pending' ?"bg-yellow-200 hover:bg-yellow-500 text-neutral-800 font-bold py-2 px-4 rounded-full ml-5" : 'bg-green-200 hover:bg-green-500 text-neutral-800 font-bold py-2 px-4 rounded-full ml-5'}>
                     {status}
                 </span>
                 {
@@ -68,7 +68,7 @@ const ManageSingleBlog = (props) => {
                             handleDelete(_id);
                         }
                     }}
-                    className="bg-red-200 hover:bg-red-500 text-neutral-800 font-bold py-2 px-4 rounded-full">Delete</button>
+                    className="bg-red-200 hover:bg-red-500 text-neutral-800 font-bold py-2 px-4 rounded-full mb-5">Delete</button>
             </div>  
         </>
     );

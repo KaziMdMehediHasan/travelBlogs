@@ -37,15 +37,15 @@ const MakeAdmin = () => {
 
     return (
         <div className="make-admin-parent">
-        <div className="make-admin-container">
-        <h2 className="text-4xl text-white">Make Admin</h2>
+        <div className="make-admin-container shadow-lg bg-slate-100">
+        <h2 className="text-4xl my-3">Make Admin</h2>
             <form onSubmit={handleMakeAdmin}>
                 <div className="mb-3">
-                    <h1 className="text-2xl text-center py-2">Email address</h1>
                     <input
-                     className='py-2 rounded-md w-full'       
+                     className='py-2 rounded-md border-2 w-full'       
                     onBlur={handleOnBlur}
-                    type="email"
+                            type="email"
+                            placeholder=" Enter the email address"
                       />
                 </div>
                 {
