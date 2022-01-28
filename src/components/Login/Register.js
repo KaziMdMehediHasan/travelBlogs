@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -30,44 +32,51 @@ const Register = () => {
         e.preventDefault();
     }
     return (
-        <div>
-            <h1>This is Register</h1>
-            {!isLoading && <form onSubmit={handleLoginSubmit}>
+        <>
+            <Navigation />
+
+            <div className="w-3/4 mx-auto flex flex-col justify-center items-center h-[78vh]">
+                <h1 className="text-5xl text-center font-bold my-5">Register as a Travel Blogger</h1>
+            {!isLoading && <form className="md:w-1/2 mx-auto" onSubmit={handleLoginSubmit}>
                 <input
-                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 ml-3"
+                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 w-full my-3"
                     type='text'
                     name='name'
                     placeholder='Your Name'
                     onBlur={handleOnBlur}
-                />
+                    />
+                    <br/>
                 <input
-                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 ml-3"
+                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 w-full my-3"
                     type='email'
                     name='email'
                     placeholder='Your Email'
                     onBlur={handleOnBlur}
-                />
+                    />
+                    <br/>
                 <input
-                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 ml-3"
+                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 w-full my-3"
                     type='password'
                     name='password'
                     placeholder='Your Password'
                     onBlur={handleOnBlur}
-                />
+                    />
+                    <br/>
                 <input
-                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 ml-3"
+                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 w-full my-3"
                     type='password'
                     name='password2'
                     placeholder='Retype Your Password'
                     onBlur={handleOnBlur}
-                />
+                    />
+                    <br/>
                 <button
-                    className="bg-cyan-500 px-3 py-2 rounded-md shadow-md ml-3">
+                    className="bg-cyan-500 px-3 py-2 rounded-md shadow-md my-3">
                     Register
                 </button>
                 <NavLink to="/login">
                     <button
-                        className="bg-cyan-500 px-3 py-2 rounded-md shadow-md ml-3">
+                        className="bg-cyan-500 px-3 py-2 rounded-md shadow-md md:ml-3">
                         Already Registered? Please Log in
                     </button>
                 </NavLink>
@@ -103,7 +112,9 @@ const Register = () => {
                     <p>{authError}</p>
                 </div>
             </div>}
-        </div>
+            </div>
+            <Footer/>
+        </>
     );
 };
 

@@ -49,49 +49,51 @@ const UserExperience = () => {
       <div>
         <div className="w-3/6 mx-auto">
           <h1 className="text-4xl text-center my-5 text-slate-700">Post your blog</h1>
-            <form className="add-product-form border-4 rounded-md" onSubmit={handleSubmit(onSubmit)}>
-            <input
+            <form className="add-product-form" onSubmit={handleSubmit(onSubmit)}>
+              <input className="my-3"
                 {...register("name", { required: true })}
                 placeholder="name *required"
               />
-              <hr />
-              <input
+
+              <input className="my-3"
                 {...register("title", { required: true })}
                 placeholder="Blog Title *required"
               />
-              <hr/>
-              <input
+
+              <input className="my-3"
                 {...register("location", { required: true })}
                 placeholder="travel location *required"
               />
-              <hr/>
-              <input
+
+              <input className="my-3"
                 {...register("category", { required: true })}
                 placeholder="category *required"
               />
-              <hr />
-              <input
+
+              <input className="my-3"
                 {...register("cost", { required: true })}
-                placeholder="overall travel cost *required"
+                placeholder="overall travel cost for one person *required"
                 type="number"
               />
-              <hr />
-              <input 
+
+              <input  className="my-3"
                 {...register("email", { required: true })} placeholder="email *required" />
-              <hr />
-              <input 
+
+              <input  className="my-3"
                     {...register("date", { required: true })} placeholder="Travel Date *required" type="date" />
-                <hr/>
-          <input 
+
+          <input className="my-3" 
                 type="number"
                 {...register("rating", { required: true, min: 1, max:5})} placeholder="Rate in number from 0 to 5 *required" />
-              <hr />
+    
               <textarea 
+              className="my-3"
                 {...register("experience",{ required: true })} placeholder="Share your experience *required" />
-          <hr />
-          <input {...register("image", { required: true })}  placeholder="image url"/>
-          <hr/>
-              <input value="Post" className="submit" type="submit"/>
+
+              <input className="my-3"
+                {...register("image", { required: true })} placeholder="image url" />
+
+              <input value="Post" className="my-3 bg-green-200 hover:bg-green-400 cursor-pointer" type="submit"/>
             </form>
         {/* after successful submission */}
             {

@@ -58,8 +58,6 @@ const MakeAdmin = () => {
                 <div className="w-full flex justify-center items-center">
                     <button className="bg-green-200 hover:bg-green-400 px-2 py-2 rounded-full">Make Admin</button>      
                </div>
-   
-                
             </form>
 
         </div>

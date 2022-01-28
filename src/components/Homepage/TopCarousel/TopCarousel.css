@@ -1,0 +1,9 @@
+   .img-div{
+       height: 35rem;
+    }
+/* mobile responsive */
+@media (max-width: 688px){
+    .img-div{
+        height: 20rem;
+    }
+}

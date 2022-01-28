@@ -36,11 +36,12 @@ const [blogs, setBlogs] = useState([]);
     return (
         <>
           <Navigation/>
-            <div className="mb-3xl">
-                <CarouselComponent/>
+            <div className="mt-10">
+          {/* <CarouselComponent/> */}
+             <TopCarousel blogs={blogs}/>
             </div>
             
-            <h1 className="text-7xl text-center" style={{'margin-top':'10rem'}}>Blogs</h1>
+            <h1 className="text-7xl text-center" style={{'margin-top':'5rem'}}>Blogs</h1>
             <Blogs />
             <Footer/>
         </>

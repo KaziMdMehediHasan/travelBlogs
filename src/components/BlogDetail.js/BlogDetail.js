@@ -30,11 +30,11 @@ const BlogDetail = () => {
                 <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
                 </div>
             }
-            <div class="rounded overflow-hidden shadow-lg">
+            <div class="md:w-3/4 mx-auto rounded">
                 {
                     title && <h1 className="text-5xl font-bold text-center p-3 mb-5">{ title}</h1>
             }
-            <img class="mx-auto w-75" src={image} alt=""/>
+            <img class="mx-auto w-75 h-96 object-cover" src={image} alt=""/>
             <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">{address}</div>
                     <p class="text-gray-700 text-base">

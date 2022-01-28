@@ -34,24 +34,26 @@ const Login = () => {
     return (
         <>
             <Navigation/>
-        <div>
+        <div className="md:w-3/4 h-[78vh] mx-auto flex flex-col justify-center item-center">
           
-            <h1 className="text-3xl">This is login</h1>
-            <form onSubmit={handleLoginSubmit}>
+            <h1 className="text-5xl my-5 text-center font-bold">User Login</h1>
+            <form className="md:w-1/2 mx-auto" onSubmit={handleLoginSubmit}>
                 <input
-                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 ml-3"
+                    className="border-solid border-2 border-gray-300 py-2 my-3 rounded-md shadow-md focus:outline-1 w-full"
                     type='email'
                     name='email'
                     placeholder='Your Email'
                     onChange = {handleOnChange}
-                />
+                    />
+                    <br/>
                 <input
-                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 ml-3"
+                    className="border-solid border-2 border-gray-300 py-2 rounded-md shadow-md focus:outline-1 w-full my-3"
                     type='password'
                     name='password'
                     placeholder='Your Password'
                     onChange = {handleOnChange}
-                />
+                    />
+                    <br/>
                 <button
                     className="bg-cyan-500 px-3 py-2 rounded-md shadow-md ml-3">
                     Login
@@ -63,10 +65,14 @@ const Login = () => {
                     </button>
                 </NavLink>
             </form>
-            <p>----------------------Login With Google</p>
-            <button onClick={handleGoogleLogin}  className="bg-cyan-500 px-3 py-2 rounded-md shadow-md ml-3">
-                Google Login
-            </button>
+                <p className="text-center my-5">-------------Login With Google-------------</p>
+                
+                <div className="flex justify-center items-center my-5">
+                    <button onClick={handleGoogleLogin}  className="bg-cyan-500 px-3 py-2 rounded-md shadow-md ml-3">
+                        Google Login
+                    </button>
+                </div>
+
             {
                 isLoading &&
                 <div className=" flex justify-center items-center">

@@ -105,7 +105,7 @@ const Dashboard = () => {
                                     fontWeight: "bold",
                                     color: "#F04794"
                                   }}
-                                className="nav-link" to={`${url}/addProduct`}><span className="text-light">{clipboard} </span>Add a Blog</NavLink>
+                                className="nav-link" to={`${url}/addProduct`}><span className="text-light">{clipboard} </span>Post a Blog</NavLink>
                                 </li>
                         )
                     }
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 </ul>
             {/*end of links*/}
 
-            <button onClick={logOut} className="btn btn-danger">Logout</button>
+            {/* <button onClick={logOut} className="btn btn-danger">Logout</button> */}
              
         </div>
         <div className="dashboard-body">
